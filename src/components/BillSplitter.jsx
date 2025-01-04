@@ -1,11 +1,23 @@
 import React, { useState } from 'react';
-import { Plus, Minus, User, DollarSign, Percent, Moon, Sun, Receipt } from 'lucide-react';
+import { Plus, Minus, User, DollarSign, Percent, Moon, Sun, Receipt, Heart } from 'lucide-react';
 import { useTheme } from './ThemeProvider';
 import { Button } from './Button';
 import { Input } from './Input';
 
+const Copyright = () => (
+  <div className="text-center mt-6 py-4 text-sm text-gray-600 dark:text-gray-400 transition-colors duration-300">
+    <div className="flex items-center justify-center space-x-2">
+      <span>Made with</span>
+      <Heart className="h-4 w-4 text-red-500 animate-pulse" />
+      <span>by Your Name</span>
+    </div>
+    <div className="mt-1">
+      <span>© {new Date().getFullYear()} Bill Splitter. All rights reserved.</span>
+    </div>
+  </div>
+);
+
 const BillSplitter = () => {
-  // Previous state definitions remain the same
   const { theme, setTheme } = useTheme();
   const [billAmount, setBillAmount] = useState('');
   const [tipPercentage, setTipPercentage] = useState('15');
@@ -15,7 +27,6 @@ const BillSplitter = () => {
   const [splitEqually, setSplitEqually] = useState(true);
   const [roundUp, setRoundUp] = useState(false);
 
-  // Previous helper functions remain the same
   const fadeInUp = "animate-[fadeIn_0.3s_ease-out]";
   const slideIn = "animate-[slideIn_0.3s_ease-out]";
 
@@ -61,7 +72,6 @@ const BillSplitter = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-blue-900 p-4 md:p-8 transition-all duration-300">
-      {/* Dark Mode Toggle - Fixed positioning with better mobile support */}
       <div className="sticky top-0 z-50 flex justify-end mb-4">
         <Button
           variant="outline"
@@ -80,7 +90,6 @@ const BillSplitter = () => {
       <div className="max-w-3xl mx-auto">
         <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-2xl shadow-2xl p-6 space-y-8 transition-all duration-300
                       hover:shadow-xl transform hover:-translate-y-1 border border-purple-100 dark:border-blue-900">
-          {/* Rest of the component remains the same */}
           <div className="flex items-center justify-center space-x-3">
             <Receipt className="h-8 w-8 text-purple-600 dark:text-purple-400" />
             <h1 className="text-3xl font-bold text-center bg-gradient-to-r from-purple-600 to-blue-600 dark:from-purple-400 dark:to-blue-400 bg-clip-text text-transparent
@@ -90,7 +99,6 @@ const BillSplitter = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
-            {/* Bill Amount Input */}
             <div className="space-y-2">
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-200">
                 Bill Amount (RM)
@@ -109,7 +117,6 @@ const BillSplitter = () => {
               </div>
             </div>
 
-            {/* Tip Input */}
             <div className="space-y-2">
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-200">
                 Tip Percentage (Enter 0 for no tip)
@@ -129,7 +136,6 @@ const BillSplitter = () => {
             </div>
           </div>
 
-          {/* Split Options */}
           <div className="space-y-2">
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-200">
               Split Type
@@ -154,7 +160,6 @@ const BillSplitter = () => {
             </div>
           </div>
 
-          {/* People List */}
           <div className="space-y-4">
             <div className="flex justify-between items-center">
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-200">
@@ -213,7 +218,6 @@ const BillSplitter = () => {
             </div>
           </div>
 
-          {/* Rounding Option */}
           <div className="flex items-center space-x-2">
             <input
               type="checkbox"
@@ -231,7 +235,6 @@ const BillSplitter = () => {
             </label>
           </div>
 
-          {/* Results */}
           {billAmount && (
             <div className={`mt-6 bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/50 dark:to-blue-900/50 
                           rounded-xl p-6 transform transition-all duration-300 ${slideIn} border border-purple-100 dark:border-blue-800`}>
@@ -272,6 +275,9 @@ const BillSplitter = () => {
             </div>
           )}
         </div>
+
+        {/* Added Copyright Component */}
+        <Copyright />
       </div>
 
       <style jsx global>{`
@@ -300,3 +306,12 @@ const BillSplitter = () => {
 };
 
 export default BillSplitter;
+
+
+
+
+
+
+
+
+
