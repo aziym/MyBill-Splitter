@@ -6,13 +6,8 @@ import { Input } from './Input';
 
 const Copyright = () => (
   <div className="text-center mt-6 py-4 text-sm text-gray-600 dark:text-gray-400 transition-colors duration-300">
-    <div className="flex items-center justify-center space-x-2">
-      <span>Made with</span>
-      <Heart className="h-4 w-4 text-red-500 animate-pulse" />
-      <span>by Your Name</span>
-    </div>
     <div className="mt-1">
-      <span>© {new Date().getFullYear()} Bill Splitter. All rights reserved.</span>
+      <span>© {new Date().getFullYear()} Created by Azim Bakri</span>
     </div>
   </div>
 );
