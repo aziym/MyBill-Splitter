@@ -112,7 +112,7 @@ const BillSplitter = () => {
             {/* Tip Input */}
             <div className="space-y-2">
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-200">
-                Tip Percentage
+                Tip Percentage (Enter 0 for no tip)
               </label>
               <div className="relative group">
                 <Percent className="absolute left-3 top-2.5 h-5 w-5 text-purple-500 dark:text-purple-400
